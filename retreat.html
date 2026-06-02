@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Retreat at Ironwood Studios — Forge Stronger Teams</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nothing+You+Could+Do&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: "Intro Rust G Base 2 Line";
+    src: url("brand_assets/intro-rust/Intro Rust Free-Webfont/Webfonts/introrustg_base2line_macroman/introrustg-base2line-webfont.woff2") format("woff2"),
+         url("brand_assets/intro-rust/Intro Rust Free-Webfont/Webfonts/introrustg_base2line_macroman/introrustg-base2line-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --red-hot: #F20A21;
+    --golden: #C2883A;
+    --tangerine: #F0782D;
+    --wrought: #0B0000;
+    --barn-red: #8B3E3C;
+    --plum: #481F2B;
+    --cream: #F4EFE6;
+    --cream-warm: #ECE4D2;
+    --bone: #FAF6EE;
+    --char: #1A0F0F;
+    --muted: #6B5B53;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: "Noto Serif", serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--char);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { display: block; max-width: 100%; height: auto; }
+
+  /* TYPE */
+  .display { font-family: "Bebas Neue", "Impact", sans-serif; letter-spacing: 0.02em; }
+  .serif-disp { font-family: "DM Serif Display", "Noto Serif", serif; font-weight: 400; letter-spacing: -0.01em; }
+  .script { font-family: "Nothing You Could Do", cursive; font-weight: 400; }
+
+  .eyebrow {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.32em;
+    color: var(--golden);
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 36px; height: 1px;
+    background: var(--golden);
+  }
+  .eyebrow--center::after {
+    content: "";
+    width: 36px; height: 1px;
+    background: var(--golden);
+  }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 48px;
+  }
+  .nav__brand {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.22em;
+    color: var(--cream);
+    text-decoration: none;
+  }
+  .nav__brand .dot { color: var(--red-hot); }
+  .nav__links {
+    display: flex;
+    gap: 36px;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.22em;
+    font-size: 14px;
+  }
+  .nav__links a {
+    color: var(--cream);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 4px;
+    transition: color 0.2s;
+  }
+  .nav__links a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    height: 1px; width: 0;
+    background: var(--red-hot);
+    transition: width 0.25s;
+  }
+  .nav__links a:hover { color: var(--red-hot); }
+  .nav__links a:hover::after { width: 100%; }
+  .nav__cta {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.18em;
+    font-size: 13px;
+    background: var(--red-hot);
+    color: var(--cream);
+    padding: 11px 22px;
+    text-decoration: none;
+    border: 1px solid var(--red-hot);
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav__cta:hover { background: transparent; color: var(--red-hot); }
+
+  /* ---------- HERO ---------- */
+  .hero-section {
+    position: relative;
+    overflow: hidden;
+    min-height: clamp(680px, 90vh, 880px);
+    padding-top: 120px;
+    background: var(--wrought);
+    display: flex;
+    align-items: flex-end;
+  }
+  /* BACKGROUND IMAGE */
+  .hero-section > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  /* warm wash across the whole background */
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      90deg,
+      rgba(193, 118, 38, 0.62) 0%,
+      rgba(193, 118, 38, 0.46) 55%,
+      rgba(193, 118, 38, 0.40) 100%
+    );
+    pointer-events: none;
+  }
+  /* BLURRY ORANGE PANEL */
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 52%;
+    height: 100%;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    background: linear-gradient(
+      90deg,
+      rgba(193, 118, 38, 0.78) 0%,
+      rgba(193, 118, 38, 0.60) 40%,
+      rgba(193, 118, 38, 0.24) 70%,
+      rgba(193, 118, 38, 0) 100%
+    );
+
+    /* fade the blur itself so there's no hard edge */
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 58%, transparent 100%);
+            mask-image: linear-gradient(90deg, #000 0%, #000 58%, transparent 100%);
+
+    z-index: 2;
+  }
+  .hero-overlay::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: radial-gradient(
+      circle at left center,
+      rgba(255, 190, 90, 0.22),
+      transparent 70%
+    );
+
+    pointer-events: none;
+  }
+  /* CONTENT */
+  .hero__inner {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px 88px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: end;
+  }
+  .hero__script {
+    font-family: "Nothing You Could Do", cursive;
+    font-size: clamp(28px, 3vw, 38px);
+    color: var(--cream);
+    margin: 0 0 -8px;
+    transform: rotate(-2deg);
+    display: inline-block;
+    opacity: 0.95;
+  }
+  .hero__title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(64px, 11vw, 168px);
+    line-height: 0.88;
+    margin: 12px 0 22px;
+    letter-spacing: 0.005em;
+    color: var(--cream);
+    text-transform: uppercase;
+    text-shadow: 0 2px 24px rgba(11, 0, 0, 0.45);
+  }
+  .hero__title .accent { color: var(--red-hot); }
+  .hero__title .outline {
+    font-family: "Intro Rust G Base 2 Line", "Bebas Neue", sans-serif;
+    color: var(--cream);
+    -webkit-text-stroke: 0;
+  }
+  .hero__title-img {
+    display: block;
+    width: clamp(280px, 50vw, 720px);
+    height: auto;
+    max-width: 100%;
+  }
+  .hero__sub {
+    max-width: 560px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: rgba(244, 239, 230, 0.9);
+    margin: 0 0 32px;
+    text-shadow: 0 1px 14px rgba(11, 0, 0, 0.5);
+  }
+  .hero__actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hero__meta {
+    text-align: right;
+    align-self: end;
+    border-left: 1px solid rgba(244, 239, 230, 0.3);
+    padding-left: 24px;
+    max-width: 240px;
+    text-shadow: 0 1px 16px rgba(11, 0, 0, 0.55);
+  }
+  .hero__meta-label {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.28em;
+    font-size: 12px;
+    color: var(--golden);
+    margin-bottom: 10px;
+  }
+  .hero__meta-value {
+    font-family: "DM Serif Display", serif;
+    font-size: 26px;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+  .hero__meta-value em {
+    font-family: "Nothing You Could Do", cursive;
+    font-style: normal;
+    color: var(--red-hot);
+    font-size: 24px;
+  }
+  .hero__meta-note {
+    font-size: 13px;
+    color: rgba(244, 239, 230, 0.65);
+    font-style: italic;
+  }
+  .hero__scroll {
+    position: absolute;
+    left: 48px;
+    bottom: 28px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: var(--cream);
+    opacity: 0.5;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    z-index: 4;
+  }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.22em;
+    font-size: 15px;
+    padding: 16px 30px;
+    text-decoration: none;
+    border: 1px solid var(--red-hot);
+    background: var(--red-hot);
+    color: var(--cream);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn::after {
+    content: "→";
+    font-family: serif;
+    transform: translateX(0);
+    transition: transform 0.2s;
+  }
+  .btn:hover { background: var(--char); border-color: var(--char); }
+  .btn:hover::after { transform: translateX(4px); }
+  .btn--ghost {
+    background: transparent;
+    color: var(--cream);
+    border-color: rgba(244, 239, 230, 0.4);
+  }
+  .btn--ghost:hover { background: var(--cream); color: var(--char); border-color: var(--cream); }
+  .btn--dark { background: var(--char); border-color: var(--char); }
+  .btn--dark:hover { background: var(--red-hot); border-color: var(--red-hot); }
+
+  /* MARQUEE */
+  .marquee {
+    background: var(--char);
+    color: var(--cream);
+    padding: 18px 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(194, 136, 58, 0.18);
+    border-bottom: 1px solid rgba(194, 136, 58, 0.18);
+  }
+  .marquee__track {
+    display: flex;
+    gap: 48px;
+    white-space: nowrap;
+    animation: marquee 38s linear infinite;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.32em;
+    font-size: 14px;
+  }
+  .marquee__track span {
+    display: inline-flex;
+    align-items: center;
+    gap: 48px;
+  }
+  .marquee__track .dot { color: var(--red-hot); }
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+
+  /* ---------- SECTION ---------- */
+  .section {
+    padding: 120px 0;
+    position: relative;
+  }
+  .wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* INTRO */
+  .intro {
+    background: var(--char);
+  }
+  .intro__grid {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    align-items: stretch;
+  }
+  .intro__media {
+    position: relative;
+    overflow: hidden;
+    background: var(--wrought);
+    min-height: 640px;
+  }
+  .intro__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .intro__panel {
+    padding: 96px 84px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .intro__logo {
+    width: 100%;
+    max-width: 560px;
+  }
+  .intro__logo img {
+    width: 100%;
+    height: auto;
+    /* black artwork on transparent -> white */
+    filter: brightness(0) invert(1);
+  }
+  .intro__rule {
+    width: 100%;
+    max-width: 560px;
+    height: 2px;
+    background: var(--red-hot);
+    margin: 32px 0;
+  }
+  .intro__body {
+    max-width: 560px;
+  }
+  .intro__body p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--cream);
+    margin: 0 0 16px;
+  }
+  .intro__body p strong { color: #fff; }
+  .intro__actions { margin-top: 32px; }
+  .intro__actions .btn {
+    border: 3px solid var(--cream);
+  }
+  .intro__actions .btn::after { content: none; }
+
+  /* ---------- FEATURES ---------- */
+  .features {
+    background:
+      linear-gradient(rgba(11, 0, 0, 0.72), rgba(11, 0, 0, 0.72)),
+      url("brand_assets/img/welding.webp") center / cover no-repeat;
+    color: var(--cream);
+    padding: 130px 0;
+    position: relative;
+  }
+  .features::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 220px;
+    background: radial-gradient(ellipse at top, rgba(242, 10, 33, 0.10), transparent 70%);
+  }
+  .features__head {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+  }
+  .features__head .script {
+    font-size: 32px;
+    color: var(--golden);
+    display: block;
+    margin-bottom: 4px;
+    transform: rotate(-1deg);
+  }
+  .features__title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(52px, 6.5vw, 92px);
+    line-height: 0.95;
+    color: var(--cream);
+    margin: 0;
+  }
+  .features__title .accent { color: var(--red-hot); }
+  .features__sub {
+    font-style: italic;
+    color: rgba(244, 239, 230, 0.6);
+    margin: 16px auto 0;
+    max-width: 540px;
+    font-size: 17px;
+  }
+  .features__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(194, 136, 58, 0.22);
+    border-left: 1px solid rgba(194, 136, 58, 0.22);
+  }
+  .feature {
+    border-right: 1px solid rgba(194, 136, 58, 0.22);
+    border-bottom: 1px solid rgba(194, 136, 58, 0.22);
+    padding: 44px 36px;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .feature:hover { background: rgba(242, 10, 33, 0.06); }
+  .feature__num {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.32em;
+    color: var(--golden);
+    margin-bottom: 28px;
+    display: block;
+  }
+  .feature__icon {
+    width: 64px;
+    height: 64px;
+    padding: 11px;
+    margin-bottom: 22px;
+    background: var(--red-hot);
+    border-radius: 50%;
+    color: #fff;
+    overflow: visible;
+  }
+  .feature__title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    color: var(--cream);
+    margin: 0 0 14px;
+  }
+  .feature__text {
+    font-size: 15px;
+    color: rgba(244, 239, 230, 0.7);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ---------- SPLIT ---------- */
+  .split {
+    background: var(--cream);
+    padding: 0;
+  }
+  .split__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+  }
+  .split__media {
+    background: var(--wrought);
+    overflow: hidden;
+    position: relative;
+  }
+  .split__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .split__tag {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.32em;
+    color: var(--cream);
+    background: var(--red-hot);
+    padding: 8px 14px;
+  }
+  .split__content {
+    padding: 100px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--cream-warm);
+  }
+  .split__content .eyebrow { margin-bottom: 24px; }
+  .split__content h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(44px, 5vw, 72px);
+    line-height: 0.95;
+    color: var(--wrought);
+    margin: 0 0 24px;
+  }
+  .split__content h2 .accent {
+    font-family: "DM Serif Display", serif;
+    font-style: italic;
+    color: var(--red-hot);
+    text-transform: lowercase;
+    font-size: 0.78em;
+  }
+  .split__content p {
+    font-size: 17px;
+    color: var(--char);
+    line-height: 1.7;
+    margin: 0 0 20px;
+  }
+  .split__list {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 28px;
+  }
+  .split__list li {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.16em;
+    font-size: 14px;
+    color: var(--char);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .split__list li::before {
+    content: "";
+    width: 8px; height: 8px;
+    background: var(--red-hot);
+    flex-shrink: 0;
+  }
+
+  /* ---------- AMENITIES ---------- */
+  .amenities {
+    background: var(--plum);
+    color: var(--cream);
+    padding: 120px 0;
+    position: relative;
+  }
+  .amenities__head {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .amenities__head h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(44px, 5.5vw, 80px);
+    line-height: 0.95;
+    color: var(--cream);
+    margin: 14px 0 0;
+  }
+  .amenities__head h2 .accent {
+    font-family: "DM Serif Display", serif;
+    font-style: italic;
+    color: var(--golden);
+    font-size: 0.85em;
+  }
+  .amenities__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+  }
+  .amenity {
+    background: rgba(11, 0, 0, 0.3);
+    border: 1px solid rgba(194, 136, 58, 0.18);
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .amenity:hover { transform: translateY(-6px); border-color: var(--golden); }
+  .amenity__img {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+  .amenity__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+  }
+  .amenity:hover .amenity__img img { transform: scale(1.05); }
+  .amenity__body {
+    padding: 28px 28px 32px;
+  }
+  .amenity__label {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.28em;
+    font-size: 12px;
+    color: var(--golden);
+    margin-bottom: 10px;
+  }
+  .amenity__title {
+    font-family: "Bebas Neue Pro", "Bebas Neue", sans-serif;
+    font-size: 24px;
+    color: var(--cream);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  /* ---------- TESTIMONIAL ---------- */
+  .testimonial {
+    position: relative;
+    background: var(--wrought);
+    height: clamp(560px, 74vh, 800px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+  .testimonial__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 26%;
+    display: block;
+  }
+  .testimonial__body {
+    position: relative;
+    z-index: 2;
+    height: 33.333%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(72, 31, 43, 0.7);
+    padding: 24px 48px;
+    text-align: left;
+  }
+  .testimonial__quote {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(15px, 1.5vw, 20px);
+    line-height: 1.45;
+    color: var(--cream);
+    font-style: italic;
+    margin: 0 0 14px;
+    width: 100%;
+    max-width: 880px;
+  }
+  .testimonial__quote .mark {
+    color: var(--red-hot);
+    font-style: normal;
+  }
+  .testimonial__attr {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.24em;
+    font-size: 13px;
+    color: var(--red-hot);
+    width: 100%;
+    max-width: 880px;
+  }
+
+  /* ---------- GALLERY ---------- */
+  .gallery {
+    background: var(--cream-warm);
+    padding: 100px 0;
+  }
+  .gallery__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .gallery__head h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(44px, 5vw, 72px);
+    line-height: 0.95;
+    color: var(--wrought);
+    margin: 8px 0 0;
+  }
+  .gallery__head .script {
+    font-size: 32px;
+    color: var(--barn-red);
+    transform: rotate(-2deg);
+    display: block;
+  }
+  .gallery__head p {
+    max-width: 420px;
+    color: var(--muted);
+    margin: 0;
+    font-style: italic;
+  }
+  .gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 130px;
+    gap: 16px;
+  }
+  .gallery__item {
+    overflow: hidden;
+    position: relative;
+    background: var(--wrought);
+  }
+  .gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s, opacity 0.3s;
+  }
+  .gallery__item:hover img { transform: scale(1.04); }
+  .g1 { grid-column: span 5; grid-row: span 3; }
+  .g2 { grid-column: span 4; grid-row: span 2; }
+  .g3 { grid-column: span 3; grid-row: span 2; }
+  .g4 { grid-column: span 4; grid-row: span 2; }
+  .g5 { grid-column: span 3; grid-row: span 3; }
+  .g6 { grid-column: span 4; grid-row: span 2; }
+  .g7 { grid-column: span 5; grid-row: span 2; }
+
+  /* ---------- CTA BAND ---------- */
+  .cta {
+    position: relative;
+    background: var(--wrought);
+    color: var(--cream);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 0;
+    overflow: hidden;
+  }
+  .cta__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  /* warm wash across the whole background */
+  .cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      90deg,
+      rgba(193, 118, 38, 0.62) 0%,
+      rgba(193, 118, 38, 0.46) 55%,
+      rgba(193, 118, 38, 0.40) 100%
+    );
+    pointer-events: none;
+  }
+  .cta__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 52%;
+    height: 100%;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    background: linear-gradient(
+      90deg,
+      rgba(193, 118, 38, 0.78) 0%,
+      rgba(193, 118, 38, 0.60) 40%,
+      rgba(193, 118, 38, 0.24) 70%,
+      rgba(193, 118, 38, 0) 100%
+    );
+
+    /* fade the blur itself so there's no hard edge */
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 58%, transparent 100%);
+            mask-image: linear-gradient(90deg, #000 0%, #000 58%, transparent 100%);
+
+    z-index: 2;
+  }
+  .cta__inner {
+    position: relative;
+    z-index: 3;
+    text-align: left;
+    margin: 0;
+    padding-left: clamp(24px, 8%, 200px);
+  }
+  .cta__script {
+    font-family: "Nothing You Could Do", cursive;
+    font-size: 38px;
+    color: var(--cream);
+    display: block;
+    margin-bottom: 8px;
+    transform: rotate(-2deg);
+  }
+  .cta h2 {
+    font-family: "Intro Rust G Base 2 Line", "Bebas Neue", sans-serif;
+    font-size: clamp(60px, 9vw, 140px);
+    line-height: 0.92;
+    color: var(--cream);
+    margin: 0 0 28px;
+  }
+  .cta h2 .accent { color: var(--cream); }
+  .cta h2 .outline {
+    color: var(--cream);
+    -webkit-text-stroke: 0;
+  }
+  .cta__title-img {
+    display: block;
+    width: clamp(240px, 36vw, 500px);
+    height: auto;
+    max-width: 100%;
+  }
+  .cta p {
+    max-width: 480px;
+    margin: 0 0 36px;
+    font-size: 18px;
+    line-height: 1.65;
+    color: rgba(244, 239, 230, 0.9);
+    text-shadow: 0 1px 14px rgba(11, 0, 0, 0.5);
+  }
+  .cta .btn {
+    border: 3px solid var(--cream);
+  }
+
+  /* ---------- FORM ---------- */
+  .form-section {
+    background: var(--cream);
+    padding: 120px 0;
+  }
+  .form-section__grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .form-section h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(44px, 5vw, 68px);
+    line-height: 0.95;
+    color: var(--wrought);
+    margin: 14px 0 24px;
+  }
+  .form-section h2 .accent {
+    font-family: "DM Serif Display", serif;
+    font-style: italic;
+    color: var(--red-hot);
+    text-transform: lowercase;
+    font-size: 0.85em;
+  }
+  .form-section p {
+    color: var(--char);
+    margin: 0 0 22px;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+  .form-section__signoff {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--golden);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .form-section__avatar {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--red-hot);
+    flex-shrink: 0;
+  }
+  .form-section__avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+  .form-section__signoff strong {
+    display: block;
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.18em;
+    color: var(--wrought);
+    font-size: 16px;
+  }
+  .form-section__signoff em {
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .form {
+    background: var(--bone);
+    border: 1px solid rgba(194, 136, 58, 0.3);
+    padding: 48px;
+    position: relative;
+  }
+  .form::before {
+    content: "";
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--red-hot), var(--golden), var(--tangerine));
+  }
+  .form__head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .form__head .pulse {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--red-hot);
+    box-shadow: 0 0 0 0 var(--red-hot);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(242, 10, 33, 0.5); }
+    70% { box-shadow: 0 0 0 12px rgba(242, 10, 33, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(242, 10, 33, 0); }
+  }
+  .form__head span {
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.28em;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+  .field label {
+    display: block;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(11, 0, 0, 0.18);
+    padding: 10px 0;
+    font-family: "Noto Serif", serif;
+    font-size: 16px;
+    color: var(--char);
+    transition: border-color 0.2s;
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--red-hot);
+  }
+  .field textarea { resize: vertical; min-height: 80px; }
+  .field--full { margin-bottom: 24px; }
+
+  .form .btn--block {
+    width: 100%;
+    justify-content: center;
+    padding: 18px;
+    margin-top: 8px;
+  }
+  .form__note {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--wrought);
+    color: rgba(244, 239, 230, 0.7);
+    padding: 80px 0 32px;
+  }
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 56px;
+    margin-bottom: 48px;
+  }
+  .footer__brand {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.22em;
+    color: var(--cream);
+    margin-bottom: 14px;
+  }
+  .footer__brand .dot { color: var(--red-hot); }
+  .footer__tag {
+    font-style: italic;
+    color: rgba(244, 239, 230, 0.55);
+    max-width: 320px;
+    font-size: 15px;
+  }
+  .footer__col h4 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.28em;
+    color: var(--golden);
+    margin: 0 0 18px;
+  }
+  .footer__col p, .footer__col a {
+    color: rgba(244, 239, 230, 0.7);
+    font-size: 15px;
+    margin: 0 0 8px;
+    text-decoration: none;
+    display: block;
+  }
+  .footer__col a:hover { color: var(--red-hot); }
+  .footer__base {
+    border-top: 1px solid rgba(194, 136, 58, 0.18);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: rgba(244, 239, 230, 0.5);
+    letter-spacing: 0.06em;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 1024px) {
+    .form-section__grid { grid-template-columns: 1fr; gap: 48px; }
+    .intro__grid { grid-template-columns: 1fr; }
+    .intro__media { min-height: 360px; aspect-ratio: 16/10; }
+    .intro__panel { padding: 64px 40px; }
+    .features__grid, .amenities__grid { grid-template-columns: repeat(2, 1fr); }
+    .split__grid { grid-template-columns: 1fr; }
+    .split__content { padding: 64px 40px; }
+    .split__media { aspect-ratio: 16/10; }
+    .gallery__grid { grid-auto-rows: 100px; }
+    .g1 { grid-column: span 12; grid-row: span 3; }
+    .g2 { grid-column: span 6; grid-row: span 2; }
+    .g3 { grid-column: span 6; grid-row: span 2; }
+    .g4 { grid-column: span 6; grid-row: span 2; }
+    .g5 { grid-column: span 6; grid-row: span 2; }
+    .g6 { grid-column: span 6; grid-row: span 2; }
+    .g7 { grid-column: span 12; grid-row: span 2; }
+  }
+  @media (max-width: 768px) {
+    .nav { padding: 20px 24px; }
+    .nav__links, .nav__cta { display: none; }
+    .hero-section { min-height: 90vh; }
+    .hero-overlay {
+      width: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(193, 118, 38, 0.30) 0%,
+        rgba(72, 31, 43, 0.45) 55%,
+        rgba(11, 0, 0, 0.82) 100%
+      );
+      -webkit-mask-image: none;
+              mask-image: none;
+    }
+    .hero__inner { padding: 0 24px 56px; grid-template-columns: 1fr; }
+    .hero__script { font-size: 24px; }
+    .hero__title { font-size: clamp(40px, 10vw, 58px); }
+    .hero__title-img { width: clamp(240px, 72vw, 460px); height: auto; }
+    .hero__meta { display: none; }
+    .hero__scroll { display: none; }
+    .wrap { padding: 0 24px; }
+    .section, .features, .amenities, .cta, .form-section { padding: 72px 0; }
+    .cta__overlay {
+      width: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(193, 118, 38, 0.30) 0%,
+        rgba(72, 31, 43, 0.55) 55%,
+        rgba(11, 0, 0, 0.85) 100%
+      );
+      -webkit-mask-image: none;
+              mask-image: none;
+    }
+    .intro__media { aspect-ratio: auto; min-height: 320px; }
+    .intro__panel { padding: 56px 24px; }
+    .testimonial { height: auto; min-height: 520px; }
+    .testimonial__body { height: auto; padding: 32px 24px 40px; }
+    .features__grid { grid-template-columns: 1fr; }
+    .amenities__grid { grid-template-columns: 1fr; gap: 24px; }
+    .split__list { grid-template-columns: 1fr; }
+    .form { padding: 32px 24px; }
+    .footer__grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer__base { flex-direction: column; gap: 8px; }
+  }
+  @media (max-width: 480px) {
+    .form__row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<header class="hero-section">
+  <img src="brand_assets/img/hero.webp" alt="Welder forging metal with bright blue sparks at Ironwood Studios" />
+  <div class="hero-overlay"></div>
+  <nav class="nav">
+    <a href="#" class="nav__brand">Ironwood <span class="dot">·</span> Studios</a>
+    <div class="nav__links">
+      <a href="#experience">Experience</a>
+      <a href="#includes">Includes</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#gallery">Gallery</a>
+    </div>
+    <a href="#book" class="nav__cta">Request a Quote</a>
+  </nav>
+
+  <div class="hero__inner">
+    <div>
+      <span class="hero__script">Step out of the office</span>
+      <h1 class="hero__title">
+        <img src="brand_assets/forger_stronger_teams.png" alt="Forge Stronger Teams" class="hero__title-img" />
+      </h1>
+      <p class="hero__sub">Escape to the Finger Lakes for a hands-on team-building experience that blends strategy, creativity, welding, and authentic connection.</p>
+      <div class="hero__actions">
+        <a href="#book" class="btn">Request a Quote</a>
+        <a href="sample-agenda.html" target="_blank" rel="noopener" class="btn btn--ghost">View Sample Agenda</a>
+      </div>
+    </div>
+    <div class="hero__meta">
+      <div class="hero__meta-label">Group size</div>
+      <div class="hero__meta-value">5<em>–</em>12 <span style="font-size:14px; font-family:'Bebas Neue', sans-serif; letter-spacing:0.2em; color:rgba(244,239,230,0.7);">PARTICIPANTS</span></div>
+      <div class="hero__meta-note">Half-day &amp; full-day options</div>
+    </div>
+  </div>
+  <div class="hero__scroll">Scroll · Forward</div>
+</header>
+
+<!-- ====== MARQUEE ====== -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span>
+      Hands-On Welding <span class="dot">●</span>
+      Private Barn Retreat <span class="dot">●</span>
+      Catered Hospitality <span class="dot">●</span>
+      Finger Lakes Setting <span class="dot">●</span>
+      Artist-Led <span class="dot">●</span>
+      Take Home a Sculpture <span class="dot">●</span>
+    </span>
+    <span aria-hidden="true">
+      Hands-On Welding <span class="dot">●</span>
+      Private Barn Retreat <span class="dot">●</span>
+      Catered Hospitality <span class="dot">●</span>
+      Finger Lakes Setting <span class="dot">●</span>
+      Artist-Led <span class="dot">●</span>
+      Take Home a Sculpture <span class="dot">●</span>
+    </span>
+  </div>
+</div>
+
+<!-- ====== INTRO ====== -->
+<section class="intro" id="experience">
+  <div class="intro__grid">
+    <div class="intro__media">
+      <img src="brand_assets/img/the_retreat_mug.webp" alt="Guest holding a branded The Retreat at Ironwood Studios mug" />
+    </div>
+    <div class="intro__panel">
+      <div class="intro__logo">
+        <img src="brand_assets/Horizontal Lockup Black.png" alt="The Retreat — A Team-Building Experience at Ironwood Studios" />
+      </div>
+      <div class="intro__rule"></div>
+      <div class="intro__body">
+        <p>Immerse your team in a hands-on corporate retreat program that brings teams together through creativity, collaboration, and shared experience. Hosted in our renovated Finger Lakes barn workshop, each retreat blends focused meeting time, guided welding activities, and catered hospitality into a memorable alternative to traditional team-building events.</p>
+      </div>
+      <div class="intro__actions">
+        <a href="sample-agenda.html" target="_blank" rel="noopener" class="btn">View Sample Retreat Agenda</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FEATURES ====== -->
+<section class="features" id="includes">
+  <div class="wrap">
+    <div class="features__head">
+      <span class="script">Out of office.</span>
+      <h2 class="features__title">Into <span style="color:#fff;">Action.</span></h2>
+      <p class="features__sub">Six things every Ironwood retreat is built around.</p>
+    </div>
+
+    <div class="features__grid">
+      <article class="feature">
+        <span class="feature__num">01 / Workshop</span>
+        <img class="feature__icon" src="brand_assets/Web Assets/noun-safe-7508420 1.svg" alt="" aria-hidden="true" />
+        <h3 class="feature__title">No Experience Needed</h3>
+        <p class="feature__text">Hands-on welding workshop in a safe and empowering environment.</p>
+      </article>
+
+      <article class="feature">
+        <span class="feature__num">02 / Space</span>
+        <img class="feature__icon" src="brand_assets/Web Assets/noun-barn-8319008 1.svg" alt="" aria-hidden="true" />
+        <h3 class="feature__title">Private Retreat Space</h3>
+        <p class="feature__text">Private use of our renovated barn event space with projection screen and a full meeting setup.</p>
+      </article>
+
+      <article class="feature">
+        <span class="feature__num">03 / Sessions</span>
+        <svg class="feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <h3 class="feature__title">Captured Moments</h3>
+        <p class="feature__text">We capture photos and video throughout your retreat so your team can relive the experience long after the sparks fade.</p>
+      </article>
+
+      <article class="feature">
+        <span class="feature__num">04 / Hospitality</span>
+        <img class="feature__icon" src="brand_assets/Web Assets/noun-catering-8025391 1.svg" alt="" aria-hidden="true" />
+        <h3 class="feature__title">Catered Meal Options</h3>
+        <p class="feature__text">Continental breakfast and refreshments included. Optional chef-prepared lunch on request.</p>
+      </article>
+
+      <article class="feature">
+        <span class="feature__num">05 / Setting</span>
+        <img class="feature__icon" src="brand_assets/Web Assets/noun-lake-7788002 1.svg" alt="" aria-hidden="true" />
+        <h3 class="feature__title">Finger Lakes Setting</h3>
+        <p class="feature__text">Scenic countryside backdrop — a true escape from the day-to-day, just far enough from the office.</p>
+      </article>
+
+      <article class="feature">
+        <span class="feature__num">06 / Takeaway</span>
+        <img class="feature__icon" src="brand_assets/Web Assets/noun-welding-7861732 1.svg" alt="" aria-hidden="true" />
+        <h3 class="feature__title">Take Home a Welded Piece</h3>
+        <p class="feature__text">Each participant leaves with a finished welded sculpture, with project options ranging from signature Ironwood designs to custom pieces inspired by your company or brand.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SPLIT - Stacey ====== -->
+<section class="split">
+  <div class="split__grid">
+    <div class="split__media">
+      <span class="split__tag">Artist-Led</span>
+      <img src="brand_assets/img/stacey_1.webp" alt="Stacey Mrva, founder and metal sculptor at Ironwood Studios" />
+    </div>
+    <div class="split__content">
+      <span class="eyebrow">Guided by Stacey</span>
+      <h2>Built by hand. <span class="accent">led by an artist.</span></h2>
+      <p>Stacey Mrva is a professional metal sculptor who has hosted hundreds of teams in her renovated Finger Lakes barn. She'll walk your group from first spark to finished piece — and she leads every retreat personally.</p>
+      <ul class="split__list">
+        <li>Welding Instruction</li>
+        <li>Group Facilitation</li>
+        <li>Custom Projects Available</li>
+        <li>All Safety Equipment Provided</li>
+      </ul>
+      <a href="#book" class="btn btn--dark">Book a Retreat</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== AMENITIES ====== -->
+<section class="amenities" id="amenities">
+  <div class="wrap">
+    <div class="amenities__head">
+      <span class="eyebrow eyebrow--center" style="color: var(--golden);">Modern Amenities</span>
+      <h2>A rustic escape <br/><span class="accent" style="display:none;">with everything you need.</span></h2>
+    </div>
+
+    <div class="amenities__grid">
+      <article class="amenity">
+        <div class="amenity__img">
+          <img src="brand_assets/img/laptop.webp" alt="Laptop displaying a welcome presentation slide on a stand in the barn meeting space" />
+        </div>
+        <div class="amenity__body">
+          <div class="amenity__label">01 / Tech</div>
+          <h3 class="amenity__title">Projector &amp; Screen</h3>
+        </div>
+      </article>
+
+      <article class="amenity">
+        <div class="amenity__img">
+          <img src="brand_assets/img/pastries.webp" alt="Catered pastries and refreshments laid out on a butcher block counter" />
+        </div>
+        <div class="amenity__body">
+          <div class="amenity__label">02 / Kitchen</div>
+          <h3 class="amenity__title">Full-Service Catering</h3>
+        </div>
+      </article>
+
+      <article class="amenity">
+        <div class="amenity__img">
+          <img src="brand_assets/img/extras.webp" alt="Barn meeting table set with branded Ironwood shirts, mugs, and event swag" />
+        </div>
+        <div class="amenity__body">
+          <div class="amenity__label">03 / Extras</div>
+          <h3 class="amenity__title">Meeting Space + Swag</h3>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TESTIMONIAL ====== -->
+<section class="testimonial">
+  <img class="testimonial__bg" src="brand_assets/img/butterfly.webp" alt="Workshop participants smiling and holding their finished welded butterfly sculptures" />
+  <div class="testimonial__body">
+    <p class="testimonial__quote">
+      <span class="mark">“</span>The Retreat at Ironwood was a lot of fun: interactive, creative, and it got everyone out of their comfort zone. There was a real sense of community during the workshop and I think there's an increased connection for the team now. For us, it's just fun to not be talking business and letting our personalities shine!<span class="mark">”</span>
+    </p>
+    <div class="testimonial__attr">— Liz Ortolani, President of Ortolani Services</div>
+  </div>
+</section>
+
+<!-- ====== GALLERY ====== -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="gallery__head">
+      <div>
+        <span class="script">Inside the barn —</span>
+        <h2>A Day in the Life.</h2>
+      </div>
+      <p>From morning coffee to a finished sculpture by sundown. This is what a retreat at Ironwood actually feels like.</p>
+    </div>
+    <div class="gallery__grid">
+      <figure class="gallery__item g1"><img src="brand_assets/img/find_your_spark.webp" alt="A Find Your Spark welding helmet resting on the bench as participants look on" /></figure>
+      <figure class="gallery__item g2"><img src="brand_assets/img/welding_sparks.webp" alt="A participant filming bright blue welding sparks on a phone" /></figure>
+      <figure class="gallery__item g3"><img src="brand_assets/img/group.webp" alt="Participants in welding helmets laughing together while inspecting a piece" /></figure>
+      <figure class="gallery__item g4"><img src="brand_assets/img/butterfly_1.webp" alt="Smiling participants with their finished wire butterfly sculptures on the table" /></figure>
+      <figure class="gallery__item g5"><img src="brand_assets/img/catering.webp" alt="The renovated barn kitchen with butcher-block island and bar seating" /></figure>
+      <figure class="gallery__item g6"><img src="brand_assets/img/catering_1.webp" alt="A guest serving fresh salad from the catered spread in the barn loft" /></figure>
+      <figure class="gallery__item g7"><img src="brand_assets/img/catering_2.webp" alt="The full team sharing a catered meal at the long table in the loft" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CTA ====== -->
+<section class="cta">
+  <img src="brand_assets/img/barn.webp" alt="" class="cta__bg" aria-hidden="true" />
+  <div class="cta__overlay"></div>
+  <div class="wrap cta__inner">
+    <span class="cta__script">Ready when you are —</span>
+    <h2><img src="brand_assets/plan_your_event.png" alt="Plan Your Event" class="cta__title-img" /></h2>
+    <p>Bring your team together through creativity, strategy, and hands-on collaboration at Ironwood Studios.</p>
+    <a href="#book" class="btn">Request a Quote</a>
+  </div>
+</section>
+
+<!-- ====== FORM ====== -->
+<section class="form-section" id="book">
+  <div class="wrap">
+    <div class="form-section__grid">
+      <div>
+        <span class="eyebrow">Begin the Conversation</span>
+        <h2>Tell us about <br/><span class="accent">your team.</span></h2>
+        <p>Fill out the form and Stacey will personally follow up with tailored retreat options and pricing based on your team's needs.</p>
+        <p>Whether you're planning a leadership offsite, a department reset, or a creative milestone reward — we'll shape the day around what matters most for your group.</p>
+        <div class="form-section__signoff">
+          <div class="form-section__avatar">
+            <img src="brand_assets/img/stacey_2.webp" alt="Stacey Mrva" />
+          </div>
+          <div>
+            <strong>Stacey Mrva</strong>
+            <em>Founder &amp; Lead Artist · Ironwood Studios</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-widget-mount">
+        <script
+          id="__custom_form_widget" src="https://www.cdnstyles.com/static/custom_form_widget/v1/custom_form.widget.js"
+          data="eyJiYWNrZ3JvdW5kQ29sb3IiOiIjZjlmNWVmIiwiYmFzZVVSTCI6Imh0dHBzOi8vZm9ybXMtcHJvZC5hcGlnYXRld2F5LmNvIiwiYm9yZGVyQ29sb3IiOiIjZDhjZmM2IiwiYm9yZGVyUmFkaXVzIjoiMThweCIsImJvcmRlclN0eWxlIjoic29saWQiLCJib3JkZXJXaWR0aCI6IjFweCIsImZvcm1JZCI6IkZvcm1Db25maWdJRC1hZDg2NTA3My1jM2E0LTQ1NGEtOTU5My1iZDY2MGE0YTEwMTciLCJwYWRkaW5nIjoiMzJweCIsInByaW1hcnlDb2xvciI6IiNmZjJhMjMiLCJwcmltYXJ5Rm9udENvbG9yIjoiIzZmNWE1MiIsIndpZHRoIjoiOTAlIn0=">
+        </script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">Ironwood <span class="dot">·</span> Studios</div>
+        <p class="footer__tag">Forge stronger teams in a renovated Finger Lakes barn — artist-led, fully catered, unforgettable.</p>
+      </div>
+      <div class="footer__col">
+        <h4>The Retreat</h4>
+        <a href="#experience">Experience</a>
+        <a href="#includes">What's Included</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#gallery">Gallery</a>
+      </div>
+      <div class="footer__col">
+        <h4>Visit</h4>
+        <p>Finger Lakes Region<br/>New York</p>
+      </div>
+      <div class="footer__col">
+        <h4>Get In Touch</h4>
+        <a href="#book">Request a Quote</a>
+        <a href="mailto:stacey@ironwoodstudios.com">stacey@ironwoodstudios.com</a>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© Ironwood Studios. All rights reserved.</span>
+      <span>Hand-built in the Finger Lakes.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

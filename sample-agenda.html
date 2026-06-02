@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sample Retreat Agenda — The Retreat at Ironwood Studios</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nothing+You+Could+Do&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  @font-face {
+    font-family: "Intro Rust G Base 2 Line";
+    src: url("brand_assets/intro-rust/Intro Rust Free-Webfont/Webfonts/introrustg_base2line_macroman/introrustg-base2line-webfont.woff2") format("woff2"),
+         url("brand_assets/intro-rust/Intro Rust Free-Webfont/Webfonts/introrustg_base2line_macroman/introrustg-base2line-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --red-hot: #F20A21;
+    --golden: #C2883A;
+    --tangerine: #F0782D;
+    --wrought: #0B0000;
+    --barn-red: #8B3E3C;
+    --plum: #481F2B;
+    --cream: #F4EFE6;
+    --cream-warm: #ECE4D2;
+    --bone: #FAF6EE;
+    --char: #1A0F0F;
+    --muted: #6B5B53;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: "Noto Serif", serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--char);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { display: block; max-width: 100%; height: auto; }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- TOP STRIP ---------- */
+  .top {
+    background: var(--wrought);
+    color: var(--cream);
+    padding: 22px 0;
+  }
+  .top__brand {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.22em;
+    text-decoration: none;
+    color: var(--cream);
+  }
+  .top__brand .dot { color: var(--red-hot); }
+  .top__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top__back {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    color: var(--cream);
+    text-decoration: none;
+    opacity: 0.85;
+    transition: color 0.2s, opacity 0.2s;
+  }
+  .top__back:hover { color: var(--red-hot); opacity: 1; }
+
+  /* ---------- HEADER ---------- */
+  .header {
+    padding: 96px 0 64px;
+    text-align: center;
+    background: var(--cream-warm);
+    border-bottom: 1px solid rgba(11,0,0,0.08);
+  }
+  .eyebrow {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.32em;
+    color: var(--red-hot);
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: "";
+    width: 36px; height: 1px;
+    background: var(--red-hot);
+  }
+  .header__script {
+    font-family: "Nothing You Could Do", cursive;
+    font-size: clamp(28px, 3vw, 36px);
+    color: var(--barn-red);
+    transform: rotate(-2deg);
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+  .header__title {
+    font-family: "Intro Rust G Base 2 Line", "Bebas Neue", sans-serif;
+    font-size: clamp(40px, 6.5vw, 86px);
+    line-height: 1.0;
+    color: var(--wrought);
+    margin: 12px 0 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+  }
+  .header__title .accent { color: var(--red-hot); }
+  .header__sub {
+    font-style: italic;
+    max-width: 640px;
+    margin: 0 auto;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  /* ---------- AGENDA TIMELINE ---------- */
+  .agenda {
+    padding: 96px 0;
+  }
+  .agenda__rail {
+    position: relative;
+    padding-left: 0;
+  }
+  .agenda__item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 56px;
+    padding-bottom: 64px;
+    position: relative;
+  }
+  .agenda__item:not(:last-of-type)::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 18px;
+    bottom: -8px;
+    width: 2px;
+    background: linear-gradient(180deg, var(--red-hot) 0%, rgba(242,10,33,0.15) 100%);
+  }
+  .agenda__item::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--red-hot);
+    box-shadow: 0 0 0 4px var(--cream);
+  }
+  .agenda__time {
+    padding-left: 40px;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.06em;
+    color: var(--wrought);
+    line-height: 1.1;
+  }
+  .agenda__duration {
+    display: block;
+    font-family: "Noto Serif", serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--muted);
+    letter-spacing: 0;
+    margin-top: 4px;
+    font-weight: 400;
+  }
+  .agenda__body h3 {
+    font-family: "DM Serif Display", serif;
+    font-size: clamp(24px, 2.6vw, 32px);
+    line-height: 1.2;
+    color: var(--wrought);
+    margin: 0 0 14px;
+    font-weight: 400;
+  }
+  .agenda__body p {
+    margin: 0 0 18px;
+    color: var(--char);
+  }
+  .agenda__includes {
+    background: var(--bone);
+    border-left: 3px solid var(--golden);
+    padding: 20px 26px;
+    margin-top: 18px;
+    border-radius: 0 8px 8px 0;
+  }
+  .agenda__includes-label {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    color: var(--golden);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .agenda__includes ul {
+    margin: 0;
+    padding-left: 22px;
+  }
+  .agenda__includes li {
+    margin-bottom: 6px;
+    color: var(--char);
+  }
+  .agenda__media {
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+  }
+  .agenda__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ---------- NOTE ---------- */
+  .note {
+    padding: 56px 32px;
+    background: var(--cream-warm);
+    text-align: center;
+  }
+  .note p {
+    max-width: 640px;
+    margin: 0 auto;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--barn-red);
+  }
+  .note p::before, .note p::after {
+    content: "—";
+    margin: 0 12px;
+    color: var(--golden);
+  }
+
+  /* ---------- CTA ---------- */
+  .cta {
+    background: var(--wrought);
+    color: var(--cream);
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 40%, rgba(242,10,33,0.18), transparent 60%);
+  }
+  .cta__inner { position: relative; z-index: 1; }
+  .cta__script {
+    font-family: "Nothing You Could Do", cursive;
+    font-size: clamp(28px, 3vw, 36px);
+    color: var(--golden);
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+  .cta h2 {
+    font-family: "Intro Rust G Base 2 Line", "Bebas Neue", sans-serif;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 1.0;
+    color: var(--cream);
+    margin: 16px 0 28px;
+    text-transform: uppercase;
+  }
+  .cta p {
+    max-width: 520px;
+    margin: 0 auto 38px;
+    color: rgba(244,239,230,0.85);
+    font-size: 17px;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--red-hot);
+    color: var(--cream);
+    font-family: "Bebas Neue", sans-serif;
+    letter-spacing: 0.22em;
+    font-size: 16px;
+    padding: 18px 42px;
+    text-decoration: none;
+    border: 1px solid var(--red-hot);
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn:hover {
+    background: transparent;
+    color: var(--red-hot);
+  }
+
+  /* ---------- FOOTER ---------- */
+  .footer {
+    background: var(--wrought);
+    color: rgba(244,239,230,0.6);
+    padding: 28px 0;
+    text-align: center;
+    font-size: 13px;
+    border-top: 1px solid rgba(244,239,230,0.08);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 768px) {
+    .header { padding: 64px 0 48px; }
+    .agenda { padding: 64px 0; }
+    .agenda__item {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding-bottom: 48px;
+    }
+    .agenda__item:not(:last-of-type)::before {
+      top: 26px;
+      bottom: -16px;
+    }
+    .agenda__time { padding-left: 36px; font-size: 22px; }
+    .cta { padding: 80px 0; }
+    .wrap { padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP STRIP -->
+<div class="top">
+  <div class="wrap top__inner">
+    <a href="retreat.html" class="top__brand">Ironwood <span class="dot">·</span> Studios</a>
+    <a href="retreat.html" class="top__back">← Back to Retreat</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="wrap">
+    <span class="eyebrow">Sample Itinerary</span>
+    <div>
+      <span class="header__script">A day at Ironwood —</span>
+    </div>
+    <h1 class="header__title">The Ironwood<br/><span class="accent">Signature</span> Retreat</h1>
+    <p class="header__sub">A snapshot of how a typical day unfolds at our Finger Lakes barn — from continental breakfast to a finished welded sculpture in hand.</p>
+  </div>
+</header>
+
+<!-- AGENDA -->
+<section class="agenda">
+  <div class="wrap">
+    <div class="agenda__rail">
+
+      <!-- 9:00 AM -->
+      <article class="agenda__item">
+        <div class="agenda__time">9:00 AM<span class="agenda__duration">Arrival &amp; mingling</span></div>
+        <div class="agenda__body">
+          <h3>Welcome &amp; Continental Breakfast</h3>
+          <p>Kick off the day with fresh fruit, yogurt, granola, pastries, coffee, tea, juice, and water while your team settles in and gets ready for an unforgettable experience.</p>
+          <div class="agenda__media"><img src="brand_assets/img/pastries.webp" alt="Continental breakfast spread of pastries and refreshments" /></div>
+        </div>
+      </article>
+
+      <!-- 9:30 AM -->
+      <article class="agenda__item">
+        <div class="agenda__time">9:30 AM<span class="agenda__duration">Approx. 2.5 hours</span></div>
+        <div class="agenda__body">
+          <h3>Hands-On Welding Experience</h3>
+          <p>No experience necessary. Our guided welding workshop is designed for beginners and focuses on creativity, collaboration, and fun.</p>
+          <div class="agenda__includes">
+            <span class="agenda__includes-label">Your experience includes</span>
+            <ul>
+              <li>Professional welding instruction</li>
+              <li>A custom metal art project for each participant</li>
+              <li>Take-home finished sculpture</li>
+              <li>Custom event swag — t-shirt, bandana, and sticker</li>
+              <li>Photos and videos of the experience shared with your team</li>
+              <li>A supportive, engaging environment that encourages teamwork and creativity</li>
+            </ul>
+          </div>
+          <div class="agenda__media"><img src="brand_assets/img/welding_sparks.webp" alt="Participant welding with bright sparks at Ironwood Studios" /></div>
+        </div>
+      </article>
+
+      <!-- 12:00 PM -->
+      <article class="agenda__item">
+        <div class="agenda__time">12:00 PM<span class="agenda__duration">1 hour</span></div>
+        <div class="agenda__body">
+          <h3>Lunch &amp; Team Reflection</h3>
+          <p>Enjoy a catered lunch and take time to connect, reflect, and celebrate your team's accomplishments.</p>
+          <div class="agenda__includes">
+            <span class="agenda__includes-label">Sample lunch menu</span>
+            <ul>
+              <li>Choice of wraps</li>
+              <li>Garden salad with house vinaigrette</li>
+              <li>Chips and cookies</li>
+              <li>Several alternative menu options available</li>
+            </ul>
+          </div>
+          <div class="agenda__media"><img src="brand_assets/img/catering.webp" alt="Catered lunch spread in the renovated barn" /></div>
+        </div>
+      </article>
+
+      <!-- 1:00 PM -->
+      <article class="agenda__item">
+        <div class="agenda__time">1:00 PM<span class="agenda__duration">Up to 3 hours</span></div>
+        <div class="agenda__body">
+          <h3>Team Meeting Session</h3>
+          <p>Transition from the shop to focused team time in our private event space.</p>
+          <div class="agenda__includes">
+            <span class="agenda__includes-label">Meeting space amenities</span>
+            <ul>
+              <li>Private use of the retreat space</li>
+              <li>Projector and presentation screen</li>
+              <li>Comfortable seating and gathering areas</li>
+              <li>Quiet countryside setting ideal for planning, collaboration, and team building</li>
+            </ul>
+          </div>
+          <div class="agenda__media"><img src="brand_assets/img/laptop.webp" alt="Laptop and presentation setup in the barn meeting space" /></div>
+        </div>
+      </article>
+
+      <!-- 4:00 PM -->
+      <article class="agenda__item">
+        <div class="agenda__time">4:00 PM<span class="agenda__duration">Wrap up</span></div>
+        <div class="agenda__body">
+          <h3>Retreat Concludes</h3>
+          <p>Head home with a one-of-a-kind sculpture, great memories, and a stronger connection to your team.</p>
+          <div class="agenda__media"><img src="brand_assets/img/butterfly.webp" alt="Participants holding finished welded butterfly sculptures" /></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- NOTE -->
+<section class="note">
+  <div class="wrap">
+    <p>Every retreat can be customized to fit your group's goals, schedule, and budget.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap cta__inner">
+    <span class="cta__script">When you're ready —</span>
+    <h2>Book Your Event</h2>
+    <p>Tell us about your team and we'll tailor a day around what matters most to you.</p>
+    <a href="retreat.html#book" class="btn">Book Your Event</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">© Ironwood Studios · The Retreat · Finger Lakes, NY</div>
+</footer>
+
+</body>
+</html>
